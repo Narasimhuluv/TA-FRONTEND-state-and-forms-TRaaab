@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>images change</title>
+    <style>
+        img{
+            width: 100%;
+            display: block;
+            margin-top: 4rem;
+            border-radius: 0.5rem;
+        }
+        h2{
+            text-align: center;
+        }
+        .buttonsdiv{
+            width: 50%;
+            margin: auto;
+            display: flex;
+            padding: 2rem;
+            background: white;
+            border: 1px solid rgba(128, 128, 128, 0.329);
+
+        }
+        button{
+            display: block;
+            text-align: center;
+            margin: auto;
+            border: none;
+            background: none;
+            padding: 0.4rem 1rem;
+            border: 1px solid;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+        }
+        button:hover{
+            border: 3px solid green;
+            border-radius: 0.2rem;
+            cursor: pointer;
+        }
+        .imageDiv{
+            margin: auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- react js scripts  -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- babel scripts  -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+    var root = document.getElementById('root');
+
+    class App extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {
+                name : "Images Change",
+                image : ""
+            }
+        }
+        handlBasketball = () => {
+            this.setState({
+                image : "../assets/basketball.jpg"
+            })
+        }
+        handlcricket = () => {
+            this.setState({
+                image : "../assets/cricket.jpg"
+            })
+        }
+        handllaptop = () => {
+            this.setState({
+                image : "../assets/laptop.jpg"
+            })
+        }
+        handlephone = () => {
+            this.setState ({
+                image : "../assets/phone.jpg"
+            })
+        }
+
+        handlpubg = () => {
+            this.setState ({
+                image : "../assets/pubg.jpeg"
+            })
+        }
+        handltiger = () => {
+            this.setState({
+                image : "../assets/tiger.jpg"
+            })
+        }
+        
+        render() {
+            return (
+                <div>
+                    <h2>{this.state.name}</h2>
+                    <div className="buttonsdiv">
+                        <button onClick={this.handlBasketball}>basket ball</button>
+                        <button onClick={this.handlcricket}>cricket</button>
+                        <button onClick= {this.handllaptop}>laptop</button>
+                        <button onClick={this.handlephone}>phone</button>
+                        <button onClick={this.handlpubg}>pubg</button>
+                        <button onClick={this.handltiger}>tiger</button>    
+                    </div>
+                    <div className="imageDiv">
+                        <img src={this.state.image} alt="" />    
+                    </div>
+                </div>
+            )
+        }
+    }
+
+
+    ReactDOM.render(<App /> , root)
+
+    </script>
+</body>
+</html>
