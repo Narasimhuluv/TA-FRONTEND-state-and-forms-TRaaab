@@ -11,16 +11,14 @@ class App extends React.Component{
     }
 
     handlInc = () => {
-        var {counter , step, max} = this.state;
         this.setState({
-            counter : counter + step > max ? counter : counter + step
+            counter : this.state.counter + this.state.step > this.state.max ? this.state.counter : this.state.counter + this.state.step
         })
     }
 
     handleDec = () => {
-        var {counter , step, max} = this.state;
         this.setState({
-            counter : counter - step
+            counter : this.state.counter - this.state.step
         })
     }
 
