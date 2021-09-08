@@ -6,31 +6,32 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            activeQuestion : null
+            activeAns: null,
         }
     }
+    handleClick = (each, index) => {
+        this.setState({
+            activeAns : this.state.activeAns === index ? null : index,
+        })
+    }
     render(){
-        let allQuestions = questions.map(Q => Q);
-        return (
+        return(
             <>
-            {
-                allQuestions.map((question, i) => {
-                    return (
-                        <section className="mx-auto w-1/2">
-                        <div key={i} className="p-5">
-                        <h2 className={this.state.activeQuestion === i ? "bg-green-500" : "bg-red-300" }>{question.Q}<i onClick={() => {
-                                    this.setState({
-                                       activeQuestion: this.state.activeQuestion === i ? null : i
-                                    })
-                                }} className={this.state.activeQuestion === i ? "fas fa-angle-up": "fas fa-angle-down"}></i></h2>
-                        <p className={this.state.activeQuestion === i ? "visible" : "hidden"}>{question.A}</p>
-                        </div>
-                        </section>
-                    )
-                })
-            }
+                <div className="w-8/12 border-2 m-auto mt-16 p-8 transition-all">
+                    <h1 className="text-3xl ml-10 mb-4 text-yellow-500">Accordion FAQ</h1>
+                    <hr />
+                    {
+                        questions.map((each,index) => (
+                            <div className="m-10 transition-all shadow-md p-6 border py-10">
+                                <h2 className="text-xl text-green-400 font-extrabold cursor-pointer transition-all"  onClick={() => this.handleClick(each,index)}>{each.Q}{this.state.activeAns === index ? <span className="inline-block ml-6">👆</span> : <span className="inline-block ml-6">👇</span>}</h2>   
+                                {index === this.state.activeAns  ? <p className="transition-all mt-3">{each.A}</p> : null}  
+                            </div> 
+                        ))
+                    }
+                </div>
             </>
         )
+        
     }
 }
 
