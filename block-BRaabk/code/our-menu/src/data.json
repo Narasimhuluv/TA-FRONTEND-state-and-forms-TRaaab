@@ -4,7 +4,7 @@
     "title": "buttermilk pancakes",
     "category": "breakfast",
     "price": 15.99,
-    "img": "./images/item-1.jpeg",
+    "img": "https://c.ndtvimg.com/2020-10/bc5nbv6o_breakfast_650x400_01_October_20.jpg",
     "desc": "I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed "
   },
   {
@@ -12,7 +12,7 @@
     "title": "diner double",
     "category": "lunch",
     "price": 13.99,
-    "img": "./images/item-2.jpeg",
+    "img": "https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2083%2Ftrend20181105100605.jpg",
     "desc": "vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats "
   },
   {
@@ -20,7 +20,7 @@
     "title": "godzilla milkshake",
     "category": "shakes",
     "price": 6.99,
-    "img": "./images/item-3.jpeg",
+    "img": "https://res.cloudinary.com/purnesh/image/upload/w_540,f_auto/header-8-places-in.jpg",
     "desc": "ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral."
   },
   {
@@ -28,7 +28,7 @@
     "title": "country delight",
     "category": "breakfast",
     "price": 20.99,
-    "img": "./images/item-4.jpeg",
+    "img": "https://foodalltime.com/wp-content/uploads/2018/05/Best-Way-To-Learn-How-To-Make-Chole-Bhature-9-1.jpg",
     "desc": "Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, "
   },
   {
@@ -36,7 +36,7 @@
     "title": "egg attack",
     "category": "lunch",
     "price": 22.99,
-    "img": "./images/item-5.jpeg",
+    "img": "http://www.bakespace.com/images/large/f468b5f5247496b4f854e203bd46a7cd.jpeg",
     "desc": "franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up "
   },
   {
@@ -44,7 +44,7 @@
     "title": "oreo dream",
     "category": "shakes",
     "price": 18.99,
-    "img": "./images/item-6.jpeg",
+    "img": "https://www.wearegurgaon.com/wp-content/uploads/2019/06/best-shakes-gurgaon.jpg",
     "desc": "Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday"
   },
   {
@@ -52,7 +52,7 @@
     "title": "bacon overflow",
     "category": "breakfast",
     "price": 8.99,
-    "img": "./images/item-7.jpeg",
+    "img": "https://www.verywellhealth.com/thmb/gF-I-Kf6MyQfEbp1Q9mpXtcENxM=/2880x1920/filters:fill(87E3EF,1)/best-breakfast-choices-and-diabetes-1087468-primary-recirc-603a39fe3b10439eaa9a0cf80a09eec2.jpg",
     "desc": "carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird "
   },
   {
@@ -60,7 +60,7 @@
     "title": "american classic",
     "category": "lunch",
     "price": 12.99,
-    "img": "./images/item-8.jpeg",
+    "img": "https://images.mid-day.com/images/images/2021/aug/Special-banana_d.jpg",
     "desc": "on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut  "
   },
   {
@@ -68,7 +68,7 @@
     "title": "quarantine buddy",
     "category": "shakes",
     "price": 16.99,
-    "img": "./images/item-9.jpeg",
+    "img": "https://curlytales.com/wp-content/uploads/2017/07/27517069864_dfb9b48f41_b.jpg",
     "desc": "skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
   }
 ]
