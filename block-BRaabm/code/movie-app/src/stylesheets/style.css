@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+
+/* custom styles  */
+.display{
+    overflow-y: scroll;
+    animation: display 1s linear ;
+}
+
+::-webkit-scrollbar{
+    width : 0;
+}
+@keyframes display {
+    from{
+        opacity: 30%;
+    }to{
+        opacity: 100%;
+    }
+}
