@@ -1,0 +1,55 @@
+.container{
+    max-width: 1300px;
+    width: 100%;
+    border: 1px solid grey;
+    margin: auto;
+    font-family: 'Allison', cursive;
+}
+form{
+    width: 26%;
+    padding: 3rem 1rem;
+    font-family: 'Allison', cursive;
+    margin:100px auto;
+    padding-left: 2.5rem;
+    border-radius: 1rem;
+    /* border: 1px solid rgba(128, 128, 128, 0.11); */
+    box-shadow: -1px -1px 1px rgba(255, 255, 255, 0.315),
+                0.5px 0.5px 3px rgba(0,0,0,0.5)
+
+}
+input{
+    width: 90%;
+    padding: 0.5rem 0.5rem;
+    border: none;
+    border: 1px solid rgba(128, 128, 128, 0.877);
+    outline: none;
+    border-radius: 0.6rem;
+}
+label{
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+}
+h2{
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+.submit{
+    display: block;
+    margin-top: 2rem;
+    margin-left: 0.6rem;
+    background: none;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    border-radius: 2rem;
+    padding: 0.6rem 0;
+}
+span{
+    color: red;
+    font-family: monospace;
+    font-size: 0.6rem;
+}
