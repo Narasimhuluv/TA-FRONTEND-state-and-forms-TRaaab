@@ -52,4 +52,6 @@ span{
     color: red;
     font-family: monospace;
     font-size: 0.6rem;
+    display: block;
+    margin-top: 0.3rem;
 }
