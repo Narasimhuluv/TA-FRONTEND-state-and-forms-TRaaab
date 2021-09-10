@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation form</title>
+    <link rel="stylesheet" href="./validation.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- react Scripts  -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- React scripts ended -->
+
+    <!-- babel scripts  -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>    
+    <!-- babel script ended -->
+
+    <script type="text/babel">
+        var root = document.getElementById('root');
+
+        class App extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    username : "",
+                    email : "",
+                    password : "",
+                    confirmpas : "",
+                    errors : {
+                        username : "",
+                        email : "",
+                        password : "",
+                        confirmpas : "",
+                    }
+                }
+            }
+
+             // Validates email address of course.
+             validEmail = (email) => {
+                var re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+                return re.test(email)
+            }
+
+            handleChange = ({target}) => {
+                var {name , value} = target;
+                let errors = this.state.errors;
+                switch (name) {
+                    case "username":
+                        errors.username = value.length < 3 ? "username must be atleast 3 charectors " : ""
+                        break;
+
+                    case "email":
+                        errors.email = this.validEmail(value) ? "" : "Email is not valid" 
+                        break;
+
+                    case "password":
+                        errors.password = value.length < 6 ? "Password must be at least 6 characters"  : ""
+                        break;
+                    case "confirmpas":
+                        errors.confirmpas = value.length == value ? "ReEnter password is required"  : ""
+                        break;
+                
+                    default:
+                        break;
+                }
+                this.setState ({
+                    [name] : value,
+                })
+            }
+
+            render(){
+                let {username, password , email, confirmpas} = this.state.errors
+                return(
+                    <div>
+
+                        <form onSubmit={this.handleSubmit}>
+                            <h2>Register With Us</h2>
+                            <label htmlFor="username">Username</label> 
+                            <input type="text" value={this.state.username} name="username" onChange={this.handleChange}/>
+                            <span>{username}</span>
+                            <label htmlFor="Email">Email</label>   
+                            <input type="text" value={this.state.email} name="email" onChange={this.handleChange}/>
+                            <span>{email}</span>
+                            <label htmlFor="Password">Password</label>
+                            <input type="text" value={this.state.password} name="password" onChange={this.handleChange}/>
+                            <span>{password}</span>
+                            <label htmlFor="Confirm Password">Confirm Password</label>
+                            <input type="text" value={this.state.confirmpas} name="confirmpas" onChange={this.handleChange}/>
+                            <span>{confirmpas}</span>
+                            <input type="submit" className="submit"/ >
+                        </form>    
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App /> , root)
+    </script>
+</body>
+</html>
