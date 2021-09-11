@@ -13,6 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
+
+    <!-- all font Styles  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allison&family=Amatic+SC:wght@700&family=Caveat&family=Kaushan+Script&family=Shadows+Into+Light&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div id="root"></div>
@@ -61,6 +68,7 @@
         }
 
         render(){
+            console.log(this.state.innerRange)
             return(
                 <div className="container">
                     
@@ -91,16 +99,16 @@
 
 
                     <div className="allCards flex justify_between flex_wrap">
-                        <EachCard inner={this.state.innerText} fontfamaily="ubuntu"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="roboot"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="Allison"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="nunito"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="besley"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="worksans"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="mukta"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="alumnisans"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="serif"/>
-                        <EachCard inner={this.state.innerText} fontfamaily="tealcount"/>
+                        <EachCard inner={this.state.innerText} fontfamaily="ubuntu" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="roboot" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="Allison" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="nunito" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="besley" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="worksans" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="mukta" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="alumnisans" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="serif" range={this.state.innerRange}/>
+                        <EachCard inner={this.state.innerText} fontfamaily="tealcount" range={this.state.innerRange}/>
                     </div>
                 </div>
             )
@@ -111,8 +119,15 @@
     function EachCard(props){
 
         function getStyle(){
-            return `style-${props.fontfamaily}`
+            return `style-${props.fontfamaily} `
         }
+
+        function setRange(some=Math.ceil(props.range)){
+           if(some){
+               return `style-${some}`
+           }
+        }
+  
         return(
             
                 <div className="card flex_30">
@@ -123,7 +138,7 @@
                         </div>
                         <p>Variables</p>
                     </div>
-                    <h1 className={getStyle()}>{props.inner}</h1>    
+                    <h1 className={getStyle() + setRange()}>{props.inner}</h1> 
 
                 </div>
             
