@@ -5,13 +5,11 @@ class Step1 extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            step1 : {
                 firstname : "",
                 lastname : "",
                 dateofbirth : "",
                 email : "",
                 address : "",
-            },
             errors : {
                 firstname : "",
                 lastname : "",
