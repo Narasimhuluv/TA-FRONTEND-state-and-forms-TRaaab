@@ -43,3 +43,13 @@ input{
     border: 1px solid rgba(128, 128, 128, 0.411);
     padding: 0.5rem 0.3rem;
 }
+.checkbox{
+    position: absolute;
+    left: -7rem;
+    top: 3rem;
+}
+.checkbox_Div{
+    position: relative;
+    /* padding: 1rem; */
+    /* border: 1px solid; */
+}
