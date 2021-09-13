@@ -50,13 +50,21 @@
                     [name] : value
                 })
             }
-            onChange = () => {
+            handleCheck = () => {
                 this.setState ({
                     checked : true
                 })
             }
             
             render(){
+
+                let exportValue = {
+                    checked: this.state.checked,
+                    address: this.state.address,
+                    zip: this.state.zip,
+                    city: this.state.city,
+                    country: this.state.country,
+                }
                 return(
                     <div className="container flex justify_between">
                         <div className="shipping">
@@ -74,7 +82,11 @@
                         </div>
                             
                         <div className="billing">
-                            <Billing fn={this.handleChange}/>    
+                            <div className="checkbox_Div">
+                                <h2>Billing Address</h2>
+                                <input className="checkbox" type='checkbox' onChange={this.handleCheck} />
+                            </div>
+                            {this.state.checked ? <Billing exportValue={exportValue} /> : <Billing exportValue='' /> }    
                         </div>
                     </div>
                 )
@@ -88,22 +100,18 @@
             }
             
             render(){
+                console.log(this.props.exportValue)
                 return(
                     <div className="">
-                        <h2>Billing Address</h2>
                         <form action="">
-                            <div className="flex checkbox items_center">
-                                <input className="check" type="checkbox"  onChange={this.onCheck}/>
-                                <label htmlFor="">Same as the Shipping Address?</label>
-                            </div>
                             <label htmlFor="Address">Address</label>
-                            <input type="text" value={this.props.value}  name="address" onChange={this.props.fn}/>   
+                            <input type="text" value={this.props.exportValue.address}  name="address" onChange={this.props.fn}/>   
                             <label htmlFor="Zip">Zip</label> 
-                            <input type="text"  name="zip" onChange={this.props.fn}/>
+                            <input type="text" value={this.props.exportValue.zip}  name="zip" onChange={this.props.fn}/>
                             <label htmlFor="City">City</label>
-                            <input type="text"  name="city" onChange={this.props.fn}/>
+                            <input type="text"  value={this.props.exportValue.city} name="city" onChange={this.props.fn}/>
                             <label htmlFor="Country">Country</label>
-                            <input type="text"  name="country" onChange={this.props.fn}/>
+                            <input type="text" value={this.props.exportValue.country}  name="country" onChange={this.props.fn}/>
                         </form>    
                     </div>
                 )
