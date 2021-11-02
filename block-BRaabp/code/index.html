@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- fontstyles  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- all font Styles  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allison&family=Amatic+SC:wght@700&family=Caveat&family=Kaushan+Script&family=Shadows+Into+Light&family=Titillium+Web:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- React scripts  -->
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- React Scripts are ended  -->
+
+    <!-- babel scripts -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- babel scripts ended -->
+
+    <script type="text/babel">
+      var root = document.getElementById("root");
+
+      function App() {
+        return (
+          <>
+            <Fonts />
+          </>
+        );
+      }
+
+      class Fonts extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            innerText: "",
+            innerRange: 10,
+          };
+        }
+
+        handleChange = (event) => {
+          this.setState({
+            innerText: event.target.value,
+          });
+        };
+
+        changeRange = (event) => {
+          this.setState({
+            innerRange: event.target.value,
+          });
+        };
+
+        render() {
+          console.log(this.state.innerRange);
+          return (
+            <div className="container">
+              <header className="flex justify_between items_center ">
+                <div className="input_div">
+                  <select name="" id="" className="select">
+                    <option value="Custom">Custom</option>
+                    <option value="Custom">one</option>
+                  </select>
+                  <input
+                    type="text"
+                    value={this.state.innerText}
+                    placeholder="Search Text Style"
+                    onChange={this.handleChange}
+                    className="inputStyle"
+                  />
+                </div>
+
+                <div className="flex items_center range_div">
+                  <p className="range_par">{this.state.innerRange}px</p>
+                  <input
+                    type="range"
+                    onChange={this.changeRange}
+                    className="input_range"
+                  />
+                </div>
+              </header>
+
+              <div className="flex justify_between items_center family_count">
+                <h3>1029 of 1029 families</h3>
+                <div>
+                  <select name="" id="" className="select">
+                    <option value="">Sort By Trading</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="allCards flex justify_between flex_wrap">
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="ubuntu"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="roboot"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="Allison"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="nunito"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="besley"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="worksans"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="mukta"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="alumnisans"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="serif"
+                  range={this.state.innerRange}
+                />
+                <EachCard
+                  inner={this.state.innerText}
+                  fontfamaily="tealcount"
+                  range={this.state.innerRange}
+                />
+              </div>
+            </div>
+          );
+        }
+      }
+
+      function EachCard(props) {
+        var { range } = props;
+        console.log(range, "hello world");
+        function getStyle() {
+          return `style-${props.fontfamaily} `;
+        }
+
+        return (
+          <div className="card flex_30">
+            <div className="flex justify_between items_center">
+              <div className="font_family">
+                <h4>{props.fontfamaily}</h4>
+                <p>Christian {props.fontfamaily}</p>
+              </div>
+              <p>Variables</p>
+            </div>
+            <h1 className={getStyle()} style={{ fontSize: `${range}px` }}>
+              {props.inner}
+            </h1>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>

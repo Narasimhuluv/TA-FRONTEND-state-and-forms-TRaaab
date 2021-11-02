@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Address & Billing Address</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="root"></div>
+    
+
+    <!-- React scripts  -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- React Scripts are ended  -->
+
+    <!-- babel scripts -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- babel scripts ended -->
+
+    <script type="text/babel">
+        var root = document.getElementById('root');
+        function App(){
+            return(
+                <>
+                    <div >
+                        <Shipping />
+                    </div>
+                </>
+            )
+        }
+
+        class Shipping extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    address : "",
+                    zip : "",
+                    city : "",
+                    country : "",
+                    checked : false
+                }
+            }
+
+            handleChange = ({target}) => {
+                var {name , value} = target;
+                this.setState({
+                    [name] : value
+                })
+            }
+            handleCheck = () => {
+                this.setState ({
+                    checked : true
+                })
+            }
+            
+            render(){
+
+                let exportValue = {
+                    checked: this.state.checked,
+                    address: this.state.address,
+                    zip: this.state.zip,
+                    city: this.state.city,
+                    country: this.state.country,
+                }
+                return(
+                    <div className="container flex justify_between">
+                        <div className="shipping">
+                            <h2>Shipping Address</h2>
+                            <form action="">
+                                <label htmlFor="Address">Address</label>
+                                <input type="text" value={this.state.address} name="address" onChange={this.handleChange}/>   
+                                <label htmlFor="Zip">Zip</label> 
+                                <input type="text" value={this.state.zip} name="zip" onChange={this.handleChange}/>
+                                <label htmlFor="City">City</label>
+                                <input type="text" value={this.state.city} name="city" onChange={this.handleChange}/>
+                                <label htmlFor="Country">Country</label>
+                                <input type="text" value={this.state.country} name="country" onChange={this.handleChange}/>
+                            </form>    
+                        </div>
+                            
+                        <div className="billing">
+                            <div className="checkbox_Div">
+                                <h2>Billing Address</h2>
+                                <input className="checkbox" type='checkbox' onChange={this.handleCheck} />
+                            </div>
+                            {this.state.checked ? <Billing exportValue={exportValue} /> : <Billing exportValue='' /> }    
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+
+        class Billing extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            
+            render(){
+                console.log(this.props.exportValue)
+                return(
+                    <div className="">
+                        <form action="">
+                            <label htmlFor="Address">Address</label>
+                            <input type="text" value={this.props.exportValue.address}  name="address" onChange={this.props.fn}/>   
+                            <label htmlFor="Zip">Zip</label> 
+                            <input type="text" value={this.props.exportValue.zip}  name="zip" onChange={this.props.fn}/>
+                            <label htmlFor="City">City</label>
+                            <input type="text"  value={this.props.exportValue.city} name="city" onChange={this.props.fn}/>
+                            <label htmlFor="Country">Country</label>
+                            <input type="text" value={this.props.exportValue.country}  name="country" onChange={this.props.fn}/>
+                        </form>    
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App /> , root)
+    </script>
+</body>
+</html>
